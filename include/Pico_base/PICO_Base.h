@@ -12,29 +12,7 @@
 Gcode GC_base;
 UART Serial2(4, 5);
 // Pin definitions for motor outputs
-  #define MOTOR_LF_A 21
-  #define MOTOR_LF_B 20
-
-  #define MOTOR_RF_A 7
-  #define MOTOR_RF_B 6
-
-  #define MOTOR_LB_A 26
-  #define MOTOR_LB_B 27 
-
-  #define MOTOR_RB_A 2
-  #define MOTOR_RB_B 3
-//
-  #define ENCODER_LF_A 0
-  #define ENCODER_LF_B 1
-
-  #define ENCODER_RF_A 29
-  #define ENCODER_RF_B 23
-
-  #define ENCODER_LB_A 15
-  #define ENCODER_LB_B 14
-
-  #define ENCODER_RB_A 16
-  #define ENCODER_RB_B 17
+  
 //
   #define GC_BOARD "G1"
 typedef struct {

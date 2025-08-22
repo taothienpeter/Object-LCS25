@@ -2,40 +2,12 @@
 #include <Wire.h>
 #include <Thread.h>
 #include "Gcode.h"
-// #include "Encoder.h"
-// #include "Pid.h"
 #include "Precise_Compute.h"
 #define MotorNum 4
 #define SERIAL_COM // for serial communication
 // #define I2C_COM // for I2C communication
 Gcode GC_base;
 UART Serial2(4, 5);
-// Pin definitions for motor outputs
-  #define MOTOR_LF_A 2
-  #define MOTOR_LF_B 3
-
-  #define MOTOR_RF_A 20
-  #define MOTOR_RF_B 21
-
-  #define MOTOR_LB_A 7
-  #define MOTOR_LB_B 6 
-
-  #define MOTOR_RB_A 27
-  #define MOTOR_RB_B 26
-//
-  #define ENCODER_LF_A 0
-  #define ENCODER_LF_B 1
-
-  #define ENCODER_RF_A 29
-  #define ENCODER_RF_B 23
-
-  #define ENCODER_LB_A 15
-  #define ENCODER_LB_B 14
-
-  #define ENCODER_RB_A 16
-  #define ENCODER_RB_B 17
-//
-  #define GC_BOARD "G2"
   // int count=0;
 typedef struct {
   uint8_t Pin_A, Pin_B;

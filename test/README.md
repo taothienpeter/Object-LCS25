@@ -1,5 +1,9 @@
+# Document reference
+- https://www.circuitstate.com/pinouts/raspberry-pi-pico-rp2040-microcontroller-board-pinout-diagrams/#IC_Pinout
+- 
 
-This directory is intended for PlatformIO Test Runner and project tests.
+
+# This directory is intended for PlatformIO Test Runner and project tests.
 
 Unit Testing is a software testing method by which individual units of
 source code, sets of one or more MCU program modules together with associated
