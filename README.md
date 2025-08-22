@@ -6,7 +6,7 @@ PS: This repo is the next version from [2nd prize robot](https://www.facebook.co
 # Structure
 The original project's structures:
 ## CS state #1:
-![CS state #1](res/CS20state20#1.png)
+![CS state #1](res/CSstate1.png)
 ## CS state #2:
-![CS state #2](res/CS20state20#2.png)
+![CS state #2](res/CSstate2.png)
 
