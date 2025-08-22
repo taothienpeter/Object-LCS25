@@ -5,6 +5,11 @@
 // #include "ROS_control\ROS_Fullsystem.h" // The final code for the UNO_FullSystem.h file
 // #include "test\MPU6050_DMP6.h"
 // #include "test\MPU6050_DMP6_using_DMP_V6.12.h"
+
+
+// #include <Arduino_mega.h>
+
+
 /*====================================TEST module====================================*/
 // #include "Gcode.h'" 
 /*====================================TEST module====================================*

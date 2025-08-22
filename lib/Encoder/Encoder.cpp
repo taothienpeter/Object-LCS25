@@ -3,8 +3,9 @@
 Encoder::Encoder(
     unsigned int pinA,
     unsigned int pinB,
+    short encTicksPerRev,
     bool isClockwise)
-    : pinA(pinA), pinB(pinB)
+    : pinA(pinA), pinB(pinB), encTicksPerRev(encTicksPerRev)
 {
   pinMode(pinA, INPUT_PULLUP);
   pinMode(pinB, INPUT_PULLUP);
@@ -43,7 +44,7 @@ volatile long Encoder::getTicks()
 
 double Encoder::getAngle()
 {
-  return (double)ticks/ ENC_TICKS_PER_REV *360;
+  return (double)ticks/ encTicksPerRev *360;
 }
 
 void Encoder::reset()

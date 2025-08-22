@@ -4,10 +4,4 @@
 // #define TEST_GCODE // uncomment to test Gcode module
 // #define TEST_PID // uncomment to test PID module
 /*==================TEST module====================================*/
-#ifdef TEST_GCODE
-
-#endif // TEST_GCODE
-//=====================================================================*/
-#ifdef TEST_PID
-
-#endif
+#include <Pico_arm.h>
