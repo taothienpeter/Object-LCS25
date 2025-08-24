@@ -17,11 +17,11 @@ public:
       unsigned int pinB,
       short encTicksPerRev,
       bool isClockwise = false);
-  void triggerA();
-  void triggerB();
-  volatile long getTicks();
-  void reset();
-  int getPinA();
-  int getPinB();
-  double getAngle();
+  void triggerA(); //trigger to add or subtract ticks
+  void triggerB(); //trigger to add or subtract ticks
+  volatile long getTicks(); //return ticks
+  void reset(); //reset ticks to 0
+  int getPinA(); // return pin A name
+  int getPinB(); // return pin B name
+  double getAngle(); //return angle in degrees
 };

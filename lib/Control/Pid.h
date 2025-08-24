@@ -29,6 +29,6 @@ public:
     void update(float desiredValue, float currentValue);
     void reset();
     void setOutputLimits(float min, float max);
-    void setMaxIntegralValue(float imaxIntegralValue);
+    void setMaxIntegralValue(float maxIntegralValue);
     void setPidParams(float ikP, float ikD = -1.0, float ikI = -1.0);
 };

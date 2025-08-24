@@ -1,11 +1,6 @@
-#include "Encoder.h"
-#include "Config.h"
-#include <Arduino.h>
-#include <unity.h>
+// #pragma once
 
-const int pinA = ENCODER_FRONTRIGHT_A;
-const int pinB = ENCODER_FRONTRIGHT_B;
-Encoder encoder_Frontleft(pinA, pinB, WHEEL_ENC_TICKS_PER_REV, false);
+#include "Encoder_test.h"
 
 // volatile long position = 0;
 
@@ -24,7 +19,6 @@ void triggerA() {
 //         position--;
 //     }
 }
-
 void triggerB() {
     encoder_Frontleft.triggerB();
 //     if (digitalRead(pinA) == digitalRead(pinB)) {
@@ -41,8 +35,10 @@ void setup() {
     attachInterrupt(digitalPinToInterrupt(pinB), triggerB, RISING);
     Serial.begin(9600);
     UNITY_BEGIN();
+    TEST_MESSAGE("Please move encoder to see the value change!");
+    UNITY_END();
 }
 
 void loop() {
-    RUN_TEST(printPosition);
+    printPosition();
 }

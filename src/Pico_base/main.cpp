@@ -3,52 +3,41 @@
 // #include "PICO_Arm.h" // The final code for the PCIO Armdrive.h file
 // #define TEST_GCODE // uncomment to test Gcode module
 // #define TEST_PID // uncomment to test PID module
-/*==================TEST module====================================*/
-// #include <Pico_base.h>
-#include "Encoder.h"
-#include "Config.h"
+/*==================TEST module========================================*/
 #include <Arduino.h>
-// #include <unity.h>
+#include "Config.h"
+#include "Pid.h"
+#include <stdio.h>
+#include <math.h>
+PID pid_test(2.0, 5.0, 1.0);
 
-const int pinA = ENCODER_FRONTRIGHT_A;
-const int pinB = ENCODER_FRONTRIGHT_B;
-Encoder encoder_Frontleft(pinA, pinB, WHEEL_ENC_TICKS_PER_REV, false);
+float SinWave_GenTest(){
+    return sin((millis()/1000.0)*2*PI*0.05);
+}
+void setup(){
+    Serial.begin(112500);
+    pid_test.setMaxIntegralValue(0.8);
+    pid_test.setOutputLimits(-1.0, 1.0);
+    while(Serial.available()){
+        float kP, kI, kD;
+        String string= Serial.readStringUntil('\n');
+        sscanf(string.c_str(), "%f %f %f", &kP, &kI, &kD);
+        pid_test.setPidParams(kP, kI, kD);
+    }
+    
+}
+void loop(){
+    pid_test.update(0, SinWave_GenTest());
+    
+    Serial.print(">Sin:");
+    Serial.print(SinWave_GenTest());
+    Serial.print(",");
 
-// volatile long position = 0;
-
-void printPosition() {
-    // Serial.println("Position: " + (String)position);
-    Serial.print('$');
-    Serial.print(encoder_Frontleft.getTicks());
-    Serial.println(';');
+    Serial.print("PID:");
+    Serial.println(pid_test.output);
+    delay(500);
 }
 
-void triggerA() {
-    encoder_Frontleft.triggerA();
-//     if (digitalRead(pinA) != digitalRead(pinB)) {
-//         position++;
-//     } else {
-//         position--;
-//     }
-}
 
-void triggerB() {
-    encoder_Frontleft.triggerB();
-//     if (digitalRead(pinA) == digitalRead(pinB)) {
-//         position++;
-//     } else {
-//         position--;
-//     }
-}
 
-void setup() {
-    // pinMode(pinA, INPUT_PULLUP);
-    // pinMode(pinB, INPUT_PULLUP);
-    attachInterrupt(digitalPinToInterrupt(pinA), triggerA, RISING);
-    attachInterrupt(digitalPinToInterrupt(pinB), triggerB, RISING);
-    Serial.begin(9600);
-}
-
-void loop() {
-    printPosition();
-}
+/*==================END TEST module====================================*/
